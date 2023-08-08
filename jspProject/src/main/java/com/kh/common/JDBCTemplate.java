@@ -36,7 +36,7 @@ public class JDBCTemplate {
 			Class.forName(prop.getProperty("driver"));
 			
 			// 접속하고자 하는 db의 url, 계정명, 비밀번호 제시해서 Connectino 객체 생성
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "SERVER", "SERVER");
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "SERVER", "SERVER");
 			conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"), prop.getProperty("password"));
 			
 		} catch (ClassNotFoundException e) {
