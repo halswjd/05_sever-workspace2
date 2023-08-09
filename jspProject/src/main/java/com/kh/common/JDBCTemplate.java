@@ -13,7 +13,7 @@ public class JDBCTemplate {
 	
 	// 1) Connection 객체 생성 한 후 해당 Connection 객체를 반환시켜주는 getConnection 메소드
 	public static Connection getConnection() {
-		System.out.println("메소드 탐");
+//		System.out.println("메소드 탐");
 		Connection conn = null;
 		
 		Properties prop = new Properties(); // 컬렉션 중 Map 계열 컬렉션 (key-value 형태)
@@ -21,7 +21,7 @@ public class JDBCTemplate {
 		// 읽어들이고자 하는 classese 폴더내에 driver.properties파일의 물리적인 경로 제시해야함
 		String filePath = JDBCTemplate.class.getResource("/db/driver/driver.properties").getPath();
 		// C:05_server-workspace2/jspProject/WebContent/classes/db/driver.properties
-		System.out.println(filePath);
+//		System.out.println(filePath);
 				
 		try {
 //			prop.load(new FileInputStream("driver.properties 파일의 경로"));

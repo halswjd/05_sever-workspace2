@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.service.MemberService;
 import com.kh.member.model.vo.Member;
@@ -44,7 +45,7 @@ public class LoginController extends HttpServlet {
 		//	  해당 요청을 처리하는 서비스 클래스의 메소드 호출 및 결과 받기
 		Member loginMember = new MemberService().loginMember(userId, userPwd);
 		
-		System.out.println(loginMember);
+//		System.out.println(loginMember);
 		
 		// 4) 처리된 결과를 가지고 사용자가 보게될 응답뷰(jsp) 지정 후 포워딩 또는 url 재요청
 		
@@ -55,6 +56,7 @@ public class LoginController extends HttpServlet {
 		 *  			 어떤 jsp든, 어떤 servlet이던 꺼내 쓸 수 있음
 		 *  3) request : 여기에 담긴 데이터는 현재 이 request 객체를 "포워딩한 응답 jsp에서만" 꺼내 쓸 수 있음 (일회성느낌)
 		 *  4) page : 해당 jsp에서 담고 그 jsp에서만 꺼내 쓸 수 있음
+		 *  위로 갈수록 넓은 영역개념
 		 *  
 		 *  공통적으로 데이터를 담고자한다면 .setAttribute("키", 벨류)
 		 *  		데이터를 꺼내고자한다면 .getAttribute("키") : Object , Object타입으로 벨류 반환
@@ -72,7 +74,26 @@ public class LoginController extends HttpServlet {
 			// request로 정보를 넘겼기 때문에 errorPage.jsp 에서만 request에 담긴 정보 사용 가능함
 			view.forward(request, response);
 		} else {
-			// 조회결과 있음 == 로그인 성공!!
+			// 조회결과 있음 == 로그인 성공!! => 메인페이지 응답 (index.jsp)
+			
+			// 로그인한 회원정보 (loginMember)를 session에 담기!! (여기저기 jsp에서 가져다 쓸 수 있도록!)
+			// Servlet에서는 session에 접근하고자 한다면 우선 세션 객체 얻어와야됨
+			// session 의 하위개념인 request를 사용해 session 객체 얻어와야함
+			HttpSession session = request.getSession(); 
+			session.setAttribute("loginMember", loginMember);
+			
+			// 1. 포워딩 방식 응답 뷰 출력
+//			RequestDispatcher view = request.getRequestDispatcher("index.jsp"); 
+//			view.forward(request, response); 
+			// http://localhost:8002/jsp/login.me
+			// 해당 선택된 jsp가 보여질 뿐 url에는 여전히 현재 이 서블릿 매핑값이 남아있음, localhost:8002/jsp 이 경로를 원하는거임
+			
+			// 2. url 재요청 방식 (sendRedirect 방식)
+			// 기존에 저 페이지를 응답하는 url이 존재한다면 사용가능(반드시 한번이라도 본 적 있는 url이여야 사용가능)
+			// localhost:8002/jsp
+			
+//			response.sendRedirect("/jsp");
+			response.sendRedirect(request.getContextPath()); // request.getContextPath() == /jsp
 		}
 		
 	}
