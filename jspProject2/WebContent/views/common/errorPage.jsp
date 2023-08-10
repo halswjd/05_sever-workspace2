@@ -13,8 +13,10 @@
 <% String errorMsg = (String)request.getAttribute("errorMsg"); %>
 
 <h3 align="center" style="color:red"> <%= errorMsg %></h3>
+<div id="test" style="height:500px; width:500px; border:1px solid black";>
+</div>
 
-
+<%@ include file="test.jsp" %>
 
 
 <h3></h3>
