@@ -199,7 +199,7 @@ public class MemberDao {
 	
 	public int deleteMember(Connection conn, String userId, String userPwd) {
 		
-		// update(DML문) => result로 받기 => 트랜젝션 처리
+		// update(DML문) => 처리된 행 수 result로 받기 => 트랜젝션 처리
 		
 		int result = 0;
 		PreparedStatement pstmt = null;

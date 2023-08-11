@@ -1,6 +1,8 @@
-package com.kh.member.controller;
+package com.kh.notice.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.kh.member.model.service.MemberService;
+import com.kh.notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class MemberDeleteController
+ * Servlet implementation class NoticeDeleteController
  */
-@WebServlet("/delete.me")
-public class MemberDeleteController extends HttpServlet {
+@WebServlet("/deleteNotice.no")
+public class NoticeDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberDeleteController() {
+    public NoticeDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +32,22 @@ public class MemberDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+		int noticeNo = Integer.parseInt(request.getParameter("num"));
 		
-		// 변수에 담기
-		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPwd");
-		
-		int result = new MemberService().deleteMember(userId, userPwd);
+		int result = new NoticeService().deleteNotice(noticeNo);
 		HttpSession session = request.getSession();
 		
 		if(result > 0) { // 성공
-			session.removeAttribute("loginMember");
-			session.setAttribute("alertMsg", "성공적으로 회원 탈퇴되었습니다. 그동안 이용해주셔서 감사합니다.");
-			response.sendRedirect(request.getContextPath());
+			session.setAttribute("alertMsg", "공지사항이 성공적으로 삭제됐습니다.");
+			response.sendRedirect(request.getContextPath() + "/list.no");
 		}else { // 실패
-			session.setAttribute("alertMsg", "회원탈퇴 실패!");
-			response.sendRedirect(request.getContextPath() + "/myPage.me");
+//			session.setAttribute("errorMsg", "공지사항 삭제에 실패했습니다.");
+			request.setAttribute("errorMsg", "공지사항 삭제에 실패했습니다.");
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
 		}
+		
+	
 	}
 
 	/**
