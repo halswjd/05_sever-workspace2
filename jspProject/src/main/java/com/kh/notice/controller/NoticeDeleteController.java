@@ -35,7 +35,7 @@ public class NoticeDeleteController extends HttpServlet {
 		int noticeNo = Integer.parseInt(request.getParameter("num"));
 		
 		int result = new NoticeService().deleteNotice(noticeNo);
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(); 
 		
 		if(result > 0) { // 성공
 			session.setAttribute("alertMsg", "공지사항이 성공적으로 삭제됐습니다.");
