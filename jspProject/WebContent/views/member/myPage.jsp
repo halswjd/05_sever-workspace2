@@ -104,7 +104,6 @@
             			// $(this).val() : 해당 체크박스의 value 값
             			if(interest.search($(this).val()) != -1){ // false면 -1 반환
             				$(this).attr("checked", true);
-            				
             			}
             		})
             	})

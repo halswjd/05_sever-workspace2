@@ -49,7 +49,7 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		int result1 = new BoardDao().insertBoard(conn, b);
-		System.out.println("@#$@#$@#$" + result1);
+		
 		int result2 = 1; // result1,2가 전부 1이여야 커밋되어야함
 		// 근데 reulst2를 0으로 하면 if문 안타서 0임 => 커밋안됨
 		
@@ -68,5 +68,44 @@ public class BoardService {
 		
 		return result1 * result2;
 		// result1이 실패해서 0되면 0이 리턴됨
+	}
+	
+	public int increaseCount(int boardNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new BoardDao().increaseCount(conn, boardNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	public Board selectBoard(int boardNo) {
+		
+		Connection conn = getConnection();
+		
+		Board b = new BoardDao().selectBoard(conn, boardNo);
+		
+		close(conn);
+		
+		return b;
+	}
+	
+	public Attachment selectAttachment(int boardNo) {
+		
+		Connection conn = getConnection();
+		
+		Attachment at = new BoardDao().selectAttachment(conn, boardNo);
+		
+		close(conn);
+		
+		return at;
 	}
 }
