@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1><%= request.getAttribute("errorMsg") %></h1>
-	<a href="/Test1">메인페이지로 돌아가기</a>
+BoardController
 </body>
 </html>
