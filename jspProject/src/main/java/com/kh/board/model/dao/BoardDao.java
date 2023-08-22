@@ -364,6 +364,65 @@ public class BoardDao {
 		
 		return result;
 	}
+	
+	public int insertThBoard(Connection conn, Board b) {
+		
+		// insert문
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertThBoard");
+		
+		try {
+			pstmt = conn.prepareCall(sql);
+			
+			pstmt.setString(1, b.getBoardTitle());
+			pstmt.setString(2, b.getBoardContent());
+			pstmt.setInt(3, Integer.parseInt(b.getBoardWriter()));
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	public int insertAttachmentList(Connection conn, ArrayList<Attachment> list) {
+		
+		// insert문
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAttachmentList");
+		
+		try {
+
+			for(Attachment at : list) { // at = list.get(0), at = list.get(1)
+				// 미완성
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, at.getOriginName());
+				pstmt.setString(2, at.getChangeName());
+				pstmt.setString(3, at.getFilePath());
+				pstmt.setInt(4, Integer.parseInt(at.getFileLevel()));
+				
+				result = pstmt.executeUpdate();
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
  
 
 }

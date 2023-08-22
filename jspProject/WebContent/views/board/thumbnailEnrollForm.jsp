@@ -30,8 +30,8 @@
         <h2 align="center">사진게시판 작성</h2>
         <br>
 
-        <form action="" id="enroll-form" method="post" enctype="multipart/form-data">
-                
+        <form action="<%= contextPath %>/insert.th" id="enroll-form" method="post" enctype="multipart/form-data">
+             <input type="hidden" name="userNo" value="<%= loginMember.getUserNo() %>">   
             <table align="center">
                 <tr>
                     <th width="100">제목</th>
@@ -58,7 +58,7 @@
 	
 
             <div id="file-area" style="display:none;"> <!-- 파일선택 div 안보이게 스타일 부여 -->
-                <input type="file" name="file1" id="file1" onchange="loadImg(this, 1);">
+                <input type="file" name="file1" id="file1" onchange="loadImg(this, 1);" required>
                 <input type="file" name="file2" id="file2" onchange="loadImg(this, 2);">
                 <input type="file" name="file3" id="file3" onchange="loadImg(this, 3);">
                 <input type="file" name="file4" id="file4" onchange="loadImg(this, 4);">
