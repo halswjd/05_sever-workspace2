@@ -109,4 +109,34 @@ public class BoardService {
 		
 		return at;
 	}
+	
+	public int updateBoard(Board b, Attachment at) {
+		
+		Connection conn = getConnection();
+		
+		// 공통
+		int result1 = new BoardDao().updateBoard(conn, b);
+		int result2 = 1;
+		
+		if(at != null) { // 새로운 첨부파일이 있을 경우
+			// new Attachment 로 heap영영에 기본값 세팅
+			if(at.getFileNo() != 0) { // 기존에 첨부파일이 있었을 경우 => Attachment Update
+				result2 = new BoardDao().updateAttachment(conn, at);
+			}else { // 기존 첨부파일이 없는 경우 => Attachment Insert
+				result2 = new BoardDao().insertNewAttachment(conn, at);
+			}
+		}
+		
+		// 하나라도 실패하면 0(행) 반환
+		if(result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result1 * result2;
+		
+	}
 }

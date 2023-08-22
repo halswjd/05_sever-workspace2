@@ -42,8 +42,11 @@
         <h2 align="center">일반게시판 수정하기</h2>
         <br>
 
-        <form id="update-form" action="" method="post" enctype="multipart/form-data">
-        
+        <form id="update-form" action="<%= contextPath %>/update.bo" method="post" enctype="multipart/form-data">
+        	<!-- 카테고리번호, 제목, 내용, 첨부파일 한개. 게시글번호 -->
+        	<input type="hidden" name="bno" value="<%= b.getBoardNo() %>">
+                
+            
             <table align="center">
                 <tr>
                     <th width="70">카테고리</th>
@@ -81,6 +84,8 @@
                     	<% if(at != null){ %>
 	                        <!-- 현재 이 게시글에 딸린 첨부파일이 있을 경우 -->
 	                        <%= at.getOriginName() %>
+                            <input type="hidden" name="originFileNo" value="<%= at.getFileNo() %>">
+	                        <!-- 애초에 글 쓸때 첨파가 없었으면 value-->
                         <%} %>
                         <input type="file" name="upfile" >
                     </td>
