@@ -38,7 +38,7 @@
 		<% if(loginMember != null){ %>
 	        <!-- 로그인한 회원만 보여짐 -->
 	        <div style="width: 850px;" align="right">
-	            <a href="#" class="btn btn-sm btn-secondary">글작성</a>
+	            <a href="<%= contextPath %>/enrollForm.th" class="btn btn-sm btn-secondary">글작성</a>
 	        </div>
         <%} %>
 
