@@ -93,7 +93,8 @@
 	     , USER_ID
 	     , TO_CHAR(CREATE_DATE, 'YYYY/MM/DD') AS "CREATE_DATE"
 	  FROM BOARD
-	  JOIN CATEGORY USING (CATEGORY_NO)
+	  <!--JOIN CATEGORY USING (CATEGORY_NO) -->
+	  LEFT JOIN CATEGORY USING (CATEGORY_NO)
 	  JOIN MEMBER ON (USER_NO = BOARD_WRITER)
 	 WHERE BOARD_NO = ?
 </entry>
@@ -180,5 +181,20 @@
 	  , ?
 	  , ?
 	  )
+</entry>
+<entry key="selectThumbnailList">
+	SELECT
+	       BOARD_NO
+	     , BOARD_TITLE
+	     , COUNT
+	     , FILE_PATH || '/' || CHANGE_NAME "TITLEIMG"
+	     , FILE_LEVEL
+	  FROM BOARD B
+	  JOIN ATTACHMENT ON (BOARD_NO=REF_BNO)
+	 WHERE BOARD_TYPE = 2
+	   AND B.STATUS = 'Y'
+	   AND FILE_LEVEL = 1
+	 ORDER
+	    BY BOARD_NO DESC
 </entry>
 </properties>

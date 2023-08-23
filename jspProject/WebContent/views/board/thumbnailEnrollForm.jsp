@@ -81,6 +81,7 @@
             			// 파일을 읽어들일 FileReader 객체 생성
             			const reader = new FileReader();
             		
+            			// input type="file" 객체는 .files[]의 배열을 가짐
             			// 파일을 읽어들이는 메소드 호출
             			reader.readAsDataURL(inputFile.files[0]);
             			// 해당 파일을 읽어들이는 순간 해당 이 파일만의 고유한 url 부여
@@ -89,6 +90,7 @@
             			reader.onload = function(e){ 
             				// e.target.result => 읽어들인 파일의 고유한 url
             				// console.log(e.target.result);
+                          
             				
             				switch(num){
             					case 1: $("#titleImg").attr("src", e.target.result); break;

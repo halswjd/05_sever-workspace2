@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.board.model.service.BoardService;
+import com.kh.board.model.vo.Attachment;
 import com.kh.board.model.vo.Board;
 
 /**
- * Servlet implementation class ThumbnailListController
+ * Servlet implementation class ThumbnailDetailController
  */
-@WebServlet("/list.th")
-public class ThumbnailListController extends HttpServlet {
+@WebServlet("/detail.th")
+public class ThumbnailDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ThumbnailListController() {
+    public ThumbnailDetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +33,27 @@ public class ThumbnailListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// thumbnailLitView.jsp 에서 필요한 데이터 조회해서 가야됨
-		// 나중에 추가할 예정
+		int bNo = Integer.parseInt(request.getParameter("bno"));
 		
-		// 리스트 담아서 가야함
-		ArrayList<Board> list = new BoardService().selectThumbnailList();
+		BoardService bService = new BoardService();
 		
-		request.setAttribute("list", list);
+		// 조회수 올리기
+		int result = bService.increaseCount(bNo);
 		
-		request.getRequestDispatcher("views/board/thumbnailListView.jsp").forward(request, response);
-		
-		
+		if(result > 0) { // 성공 => 유효한 게시글임
+			
+			// 해당 게시글 하나 객체로 받기
+			Board b = bService.selectBoard(bNo);
+			
+			// 해당 게시글 첨부파일이 여러개일수있음
+			ArrayList<Attachment> list = bService.selectAttachmentList(bNo);
+			
+			request.setAttribute("b", b);
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("views/board/thumbnailDetailView.jsp").forward(request, response);
+			
+		}
 	}
 
 	/**

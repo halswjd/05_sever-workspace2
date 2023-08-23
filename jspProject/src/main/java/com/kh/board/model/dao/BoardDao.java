@@ -423,6 +423,77 @@ public class BoardDao {
 		return result;
 		
 	}
+	
+	public ArrayList<Board> selectThumbnailList(Connection conn){
+		
+		// select문
+		ArrayList<Board> list = new ArrayList<Board>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectThumbnailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			// 조회결과 뽑아서 
+			while(rset.next()) {
+				list.add(new Board(rset.getInt("board_no"), 
+								   rset.getString("board_title"), 
+								   rset.getInt("count"),
+								   rset.getString("titleimg")));
+				// 기본생성자로
+//				Board b = new Board();
+//				b.setBoardNo(rset.~);
+//				b.setBoard ~
+//				
+//				list.add(b);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<Attachment> selectAttachmentList(Connection conn, int bNo){
+		
+		// select문 => 여러개 조회될 수 있음 => Arraylist
+		ArrayList<Attachment> list = new ArrayList<Attachment>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				// 사진을 보여주려면 file_path랑 change_name만 필요함
+				// 파일경로~~/수정파일명
+				Attachment at = new Attachment();
+				at.setChangeName(rset.getString("change_name"));
+				at.setFilePath(rset.getString("file_path"));
+				
+				list.add(at);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
  
 
 }

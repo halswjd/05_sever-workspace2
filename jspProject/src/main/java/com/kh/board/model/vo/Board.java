@@ -14,6 +14,8 @@ public class Board {
 	private String createDate; // to_char(date) => char 형식으로 반환
 	private String status;
 	
+	private String titleImg; // 대표이미지경로를 보관할 필드
+	
 	public Board() {}
 
 	public Board(int boardNo, int boardType, String category, String boardTitle, String boardContent,
@@ -51,6 +53,16 @@ public class Board {
 		this.boardContent = boardContent;
 		this.boardWriter = boardWriter;
 		this.createDate = createDate;
+	}
+	
+	
+
+	public Board(int boardNo, String boardTitle, int count, String titleImg) {
+		super();
+		this.boardNo = boardNo;
+		this.boardTitle = boardTitle;
+		this.count = count;
+		this.titleImg = titleImg;
 	}
 
 	public int getBoardNo() {
@@ -123,6 +135,14 @@ public class Board {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getTitleImg() {
+		return titleImg;
+	}
+
+	public void setTitleImg(String titleImg) {
+		this.titleImg = titleImg;
 	}
 
 	@Override

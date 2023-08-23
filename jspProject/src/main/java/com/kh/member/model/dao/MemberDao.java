@@ -223,5 +223,33 @@ public class MemberDao {
 		return result;
 		
 	}
+	
+	public int idCheck(Connection conn, String checkId) {
+		
+		// select문 => ResultSet => 쿼리문 돌리면 한개숫자가 반환됨 => int로 받기
+		int count = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, checkId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				count = rset.getInt("count");				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
+	}
 
 }
