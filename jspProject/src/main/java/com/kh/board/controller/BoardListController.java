@@ -136,7 +136,7 @@ public class BoardListController extends HttpServlet {
 		 */
 		endPage = startPage + pageLimit - 1;
 		
-		// startPage가 11이면 endPage는 20으로 됨 (근데 amxPage가 13밖에 안되면??)
+		// startPage가 11이면 endPage는 20으로 됨 (근데 maxPage가 13밖에 안되면??)
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}

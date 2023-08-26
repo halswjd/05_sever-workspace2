@@ -76,6 +76,7 @@
                 <%} else{%>
 	                <!-- case1. 게시글이 있을 경우 -->
 	                <% for(Board b : list){ %>
+	                	
 		                <tr>
 		                    <td><%= b.getBoardNo() %></td>
 		                    <td><%= b.getCategory() %></td>
@@ -106,7 +107,7 @@
         <div class="paging-area" align="center">
         	
 			<% if(currentPage != 1){ %>
-            	<button onclick="location.href='<%= contextPath %>/list.bo?cpage=<%= currentPage -1 %>'";> &lt; </button>
+            	<button onclick="location.href='<%= contextPath %>/list.bo?cpage=<%= currentPage -1 %>'"> &lt; </button>
             <%} %>
             
             <% for(int p = startPage; p <= endPage; p++){ %>
