@@ -38,7 +38,7 @@
 	  FROM CATEGORY
 </entry>
 <entry key="insertBoard">
-	INSERT 
+	INSERT  
 	  INTO BOARD
 	  (
 	    BOARD_NO
