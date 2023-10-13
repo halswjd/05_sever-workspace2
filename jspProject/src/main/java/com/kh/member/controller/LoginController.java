@@ -94,7 +94,7 @@ public class LoginController extends HttpServlet {
 			
 //			response.sendRedirect("/jsp");
 			response.sendRedirect(request.getContextPath()); // request.getContextPath() == /jsp
-		}
+		} 
 		
 	}
 

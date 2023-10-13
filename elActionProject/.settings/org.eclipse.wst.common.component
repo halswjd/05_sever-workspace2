@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+    <wb-module deploy-name="elActionProject">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="ea"/>
+        <property name="java-output-path" value="/elActionProject/WebContent/WEB-INF/classes"/>
+=======
+<<<<<<<< HEAD:jspProject_el_jstl/.settings/org.eclipse.wst.common.component
+    <wb-module deploy-name="jspProject">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <property name="context-root" value="jsp"/>
+        <property name="java-output-path" value="/jspProject/WebContent/WEB-INF/classes"/>
+========
+    <wb-module deploy-name="elActionProject">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <property name="context-root" value="el"/>
+        <property name="java-output-path" value="/elActionProject/WebContent/WEB-INF/classes"/>
+>>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697:elActionProject/.settings/org.eclipse.wst.common.component
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+    </wb-module>
+</project-modules>
