@@ -8,6 +8,7 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	<h1>JSTL 이란?</h1>
 	<p>
@@ -23,6 +24,8 @@
 	
 	<h3>*JSTL 선언 방법</h3>
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	<h1>JSTL 이란?</h1>
 	<p>
 		JSP Standard Tag Library의 약자로 JSP에서 사용되는 커스텀 액션태그로 <br>
@@ -36,11 +39,15 @@
 	4) WEB-INF/lib 안에 넣기 <br>
 	
 	<h3>* JSTL 선언 방법</h3>
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	<p>
 		JSTL을 사용하고자 하는 해당 jsp 페이지 상단에 <br>
 		taglib 지시어를 사용해서 선언함 <br><br>
 		
+<<<<<<< HEAD
 <<<<<<< HEAD
 		&lt;%@ taglib prefix="접두어" uri="해당 라이브러리 파일 상의 uri 주소" %&gt;
 	</p>
@@ -65,6 +72,8 @@
 	
 	
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 		&lt;%@ taglib prefix="접두어" uri="해당 라이브러리 파일상의 uri주소" %&gt;
 	</p>
 	
@@ -72,6 +81,9 @@
 	<p>변수와 조건문, 반복문 등의 로직과 관련된 문법을 제공</p>
 	<a href="01_core.jsp">core library</a>
 	
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 </body>
 </html>

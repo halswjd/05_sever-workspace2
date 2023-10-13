@@ -8,6 +8,7 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	<h1>EL 연산</h1>
 	
@@ -56,6 +57,8 @@
 	
 
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	
 	<h1>EL 연산</h1>
 	
@@ -103,6 +106,9 @@
 	big이 small보다 크고 lOne이 텅비어있습니까? : ${ big gt small and empty lOne }
 	
 	
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 </body>
 </html>

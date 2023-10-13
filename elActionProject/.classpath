@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src"/>
+=======
+	<classpathentry kind="src" path="src/main/java"/>
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 =======
 	<classpathentry kind="src" path="src/main/java"/>
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697

@@ -8,6 +8,7 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	<h3>jsp:include</h3>
 	<p>또 다른 페이지를 포함하고자 할 때 쓰는 태그</p>
@@ -43,6 +44,8 @@
 	</jsp:include>
 	
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	<h3>jsp:include</h3>
 	<p>또 다른 페이지를 포함하고자 할 때 쓰는 태그</p>
 	
@@ -71,6 +74,9 @@
 	<jsp:include page="footer.jsp">
 		<jsp:param value="Helllo" name="test"/>
 	</jsp:include>
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 </body>
 </html>

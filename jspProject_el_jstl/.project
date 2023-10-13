@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 <<<<<<<< HEAD:jspProject_el_jstl/.project
+<<<<<<<< HEAD:jspProject_el_jstl/.project
 	<name>jspProject_el_jstl</name>
+========
+	<name>elActionProject</name>
+>>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697:elActionProject/.project
 ========
 	<name>elActionProject</name>
 >>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697:elActionProject/.project

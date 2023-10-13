@@ -161,7 +161,11 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Context docBase="jspProject_el_jstl" path="/jsp" reloadable="true" source="org.eclipse.jst.jee.server:jspProject_el_jstl"/><Context docBase="elActionProject" path="/ea" reloadable="true" source="org.eclipse.jst.jee.server:elActionProject"/></Host>
+=======
+      <Context docBase="elActionProject" path="/el" reloadable="true" source="org.eclipse.jst.jee.server:elActionProject"/></Host>
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 =======
       <Context docBase="elActionProject" path="/el" reloadable="true" source="org.eclipse.jst.jee.server:elActionProject"/></Host>
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697

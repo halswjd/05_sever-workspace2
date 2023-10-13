@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@page import="com.kh.model.vo.Person"%>
 <%@page import="java.util.ArrayList"%>
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 =======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,6 +23,7 @@
 	<pre>
 	* 변수 선언과 동시에 초기화 (c:set var="" value="" [scope=""])
 	- 변수 선언하고 초기값을 대입해두는 기능을 제공
+<<<<<<< HEAD
 <<<<<<< HEAD
 	- 해당 변수를 어떤 scope에 담아뚤껀지 지정가능함(생략시 기본적으로 pageScope에 담김)
 	=> 즉, 해당 scope에 setAttribute를 통해서 key-value 형태로 데이터를 담아놓는 거라고 생각하면 됨
@@ -51,6 +55,8 @@
 	
 	${ requestScope.result }<br>
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	- 해당 변수를 어떤 scope에 담아둘껀지 지정 가능함 (생략시 기본적으로 pageScope에 담김)
 	=> 즉, 해당 scope에 setAttribute를 통해서 key-value 형태로 데이터를 담아놓는 거라고 생각하면 됨
 	=> c:set 으로 선언된 변수는 EL로 접근해서 사용가능 (스크립팅 원소로는 접근 불가!)
@@ -80,11 +86,15 @@
 	
 	${ requestScope.result } <br>
 	<!-- request 영역의 result 출력됨 -->
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	
 	<hr>
 	
 	<pre>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	* 변수 삭제(c:remove var="제거하고자 하는 변수명" [scope=""])
 	- 해당 scope영역에서 해당 변수를 찾아서 제거하는 태그
@@ -102,6 +112,8 @@
 	<c:remove var="result"/>
 	모든 삭제 후 result : ${ result }<br><br>
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	* 변수 삭제 (c:remove var="제거하고자하는 변수명" [scope:""])
 	- 해당 scope영역에서 해당 변수를 찾아서 제거하는 태그
 	- scope지정 생략시 모든 scope에서 해당 변수 다 찾아서 제거함
@@ -117,11 +129,15 @@
 	<c:remove var="result"/>
 	모두 삭제 후 result : ${ result } <br><br> 
 	<!-- 공백 출력 -->
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	
 	<hr>
 	
 	<pre>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	* 변수(데이터) 출력 (c:out value="출력하고자 하는 값" [default="기본값"][escapeXml="true|false"])
 	- 데이터를 출력하고자 할 때 사용하는 태그
@@ -330,12 +346,17 @@
 	
 	<br><br><br><br><br><br><br><br><br><br><br><br>
 =======
+=======
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 	* 변수(데이터) 출력 (c:out value="출력하고자하는 값" [default="기본값"] [escapeXml="true|false"])
 	- 데이터를 출력하고자 할 때 사용하는 태그
 	</pre>
 	
 	<c:out value="${ result }"/>
 	<c:out value="${ result }" default="없음"></c:out>
+<<<<<<< HEAD
+>>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
+=======
 >>>>>>> 2791e74f934b8f27c9b1ab54ba06e27f02708697
 </body>
 </html>
